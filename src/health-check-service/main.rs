@@ -16,6 +16,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let auth_hostname = env::var("AUTH_SERVICE_HOST_NAME").unwrap_or("[::0]".to_owned());
 
     let mut client = AuthClient::connect(format!("http://{}:50051", auth_hostname)).await?;
+    
 
     loop {
         let username = Uuid::new_v4().to_string();
